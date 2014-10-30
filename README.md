@@ -1,7 +1,7 @@
-# "Big" Web Services (SOAP & WSDL)
+# REST Web Services
 
 Contains:
 
-> __Todo_SOAP__: A SOAP Server that acts as a repository of ToDos (add ToDo, remove ToDo, list ToDo) and exposes these operations as three different methods of the same interface.
-> __ToDo-SOAP-soapui-project.xml__: A SoapUI project to test the sucessfull previous SOAP server.
-> __ToDo_SOAP_WebApp-ws__: A web application that uses the SOAP server as its ToDo repository.
+> __Todo_REST__: A REST Server that acts as a repository of ToDos following CRUD style (GET, PUT, DELETE, POST).
+> __ToDo-REST-soapui-project.xml__: A SoapUI project to test the sucessfull previous REST server.
+> __ToDo_REST_WebApp-ws__: A web application that uses the REST server as its ToDo repository.

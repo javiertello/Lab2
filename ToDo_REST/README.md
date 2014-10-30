@@ -1,7 +1,9 @@
-# ToDo SOAP Server (web application)
+# ToDo REST Server
 This project contains a demonstration of a web service build with [JAX-WS](http://docs.oracle.com/javaee/6/tutorial/doc/bnayl.html). 
 
-Deploy your code to a [Jetty](http://www.eclipse.org/jetty/) server with ```gradle jettyEclipseRun```. Then, open the page at [http://localhost:8081/](http://localhost:8081/). 
+Deploy your code to a [Grizzly](https://grizzly.java.net/) server with ```gradle server```. Then, open the page at [http://localhost:8081/](http://localhost:8081/). 
 
-The service endpoint is at [http://localhost:8081/toDoSOAP](http://localhost:8081/toDoSOAP) (see [WEB-INF/sun-jaxws.xml](src/main/webapp/WEB-INF/sun-jaxws.xml) for the endpoint mapping). 
+The service is at [http://localhost:8081/todos](http://localhost:8081/todos)
+
+You can do CRUD operations with ToDo's.
 

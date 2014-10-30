@@ -36,7 +36,7 @@ public class Server {
 			System.out.println(filename
 					+ ": File not found.  Creating a new file.");
 		}
-		URI uri = UriBuilder.fromUri("http://localhost/").port(8080).build();
+		URI uri = UriBuilder.fromUri("http://localhost/").port(8081).build();
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri,
 				new ApplicationConfig(tl));
 		try {
