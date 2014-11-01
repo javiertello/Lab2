@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import todo_soap.*;
+import todos.*;
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/deletetask" })
 public class ToDoDeleteServlet extends HttpServlet{
@@ -28,15 +28,8 @@ public class ToDoDeleteServlet extends HttpServlet{
 					+ "<h2>Please enter a task name</h2>"
 					+ "</body></html>");
 		}else{
-			ToDoWebServiceService twss = new ToDoWebServiceService();
-			ToDoWebService tws = twss.getToDoWebServicePort();
 			
-			String res = tws.removeToDo(task);
-			resp.setStatus(HttpServletResponse.SC_OK);
-			out.println("<html><head><title>ToDo SOAP WebApp</title></head>"
-					+ "<body>"
-					+ "<b>"+ res + "</b>"
-					+ "</body></html>");
+
 		}
 		
 	}

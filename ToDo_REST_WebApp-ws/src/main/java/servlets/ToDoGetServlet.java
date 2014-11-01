@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import todo_soap.*;
+import todos.*;
 
 @WebServlet(urlPatterns = { "/listtasks" })
-public class ToDoListServlet extends HttpServlet {
+public class ToDoGetServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -23,28 +23,9 @@ public class ToDoListServlet extends HttpServlet {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 
-		ToDoWebServiceService twss = new ToDoWebServiceService();
-		ToDoWebService tws = twss.getToDoWebServicePort();
 		
-		List<ToDo> list = tws.listToDo();
-		String lista = "";
-		for(ToDo t : list){
-			lista = addToToDoList(lista, t);
-		}
 		
-		if (lista.equals("")){
-			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			out.println("<html><head><title>Error</title></head>"
-					+ "<body>"
-					+ "<h2>SOAP Server was not found any task</h2>"
-					+ "</body></html>");
-		}else{
-			resp.setStatus(HttpServletResponse.SC_OK);
-			out.println("<html><head><title>ToDo SOAP WebApp</title></head>"
-					+ "<body><h1>Tasks list</h1><br/>"
-					 + lista
-					+ "</body></html>");
-		}
+		
 	}
 
 	private String addToToDoList(String list, ToDo todo) {
