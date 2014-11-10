@@ -36,7 +36,7 @@ public class ToDoPostServlet extends HttpServlet{
 		
 		if(task.equals("")){
 			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			out.println("<html><head><title>ToDo SOAP WebApp</title></head>"
+			out.println("<html><head><title>ToDo REST WebApp</title></head>"
 					+ "<body>"
 					+ "<h2>Please enter a task name</h2>"
 					+ "</body></html>");
@@ -48,14 +48,14 @@ public class ToDoPostServlet extends HttpServlet{
 			t.setProject(project);
 			
 			Client client = ClientBuilder.newClient();
-			Response response = client.target("http://localhost:8091/todos")
+			Response response = client.target("http://localhost:8081/todos")
 					.request(MediaType.APPLICATION_JSON)
 					.post(Entity.entity(t, MediaType.APPLICATION_JSON));
 			if(response.getStatus() == 201){
 				resp.setStatus(HttpServletResponse.SC_CREATED);
 				out.println("<html><head><title>Created!</title></head>"
 						+ "<body>"
-						+ "<b>"+ "URI: "+ "</b>"+response.getLocation()
+						+ response.getStatusInfo()
 						+ "</body></html>");
 			}
 			else{
